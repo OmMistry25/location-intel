@@ -50,6 +50,15 @@ For deeper context read in this order:
 - **You do not merge your own PRs.** Om reviews and merges.
 - Before opening a PR, **read your own diff** with `git diff main...HEAD` and call out anything you're uncertain about in the PR body under "Uncertain about."
 
+### Self-audit
+
+- **Every PR description must include a "Self-audit" section.** It is not optional. "Nothing to report" is only acceptable when it is actually true. The self-audit covers:
+  - **Deviations from the original task spec** — any way the change diverges from what was asked, however minor.
+  - **Choices made where the spec was silent** — defaults picked, configs added, versions chosen, files created that weren't explicitly requested.
+  - **Scope check** — explicit confirmation that no forbidden tools were added and no scope creep happened. If either did, say what and why.
+  - **Honest disclosure** of any corner cut or any addition the spec didn't authorize.
+- The standing instruction: **"If you cut a corner or made a choice the spec didn't authorize, say so."** A disclosed deviation is a conversation; an undisclosed one is a problem.
+
 ### What "done" means before opening a PR
 
 You have run all of these locally and they pass:
@@ -91,6 +100,8 @@ This is the single most important section. Re-read it before every task.
 - **Never edit or delete an ADR.** ADRs are append-only. If a decision changes, write a new ADR that supersedes the old one.
 
 ## Documentation expectations
+
+**Source of truth lives in the repo.** Anything a future session needs to know must live in the repo — `CLAUDE.md`, `WORK_LOG.md`, an ADR, or a doc under `docs/`. Machine-local agent memory (e.g. Claude Code's per-project memory) is a convenience cache only — never the canonical source of truth. It is local to one machine, not shared, and not visible to Om or to a fresh checkout. If something matters beyond the current session, write it into the repo; memory may point at it, but the repo is what counts.
 
 You maintain docs as you change code. Specifically:
 

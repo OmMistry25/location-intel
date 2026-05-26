@@ -10,7 +10,25 @@ This is the session-by-session memory of the project. Claude Code reads it at th
 
 Standing list of agreed-but-not-yet-started work. Remove items as they ship.
 
-- **Add a "Self-audit" requirement to `CLAUDE.md`.** Every PR description must include a "Self-audit" section listing any deviations from the original task spec, even minor ones. Prompted by the scaffold PR's self-audit catching a proactively-added `@types/node`. **Do as a separate small PR** (not bundled with the scaffold), branched off `main` after PR #1 merges. In the same PR, add a rule: *anything future sessions need to know must live in the repo (`CLAUDE.md`, `WORK_LOG.md`, or a doc); machine-local memory is convenience only, never the canonical source of truth.*
+_(None — the self-audit-requirement follow-up shipped in the entry below.)_
+
+---
+
+## 2026-05-26 — Self-audit requirement added to CLAUDE.md (follow-up PR)
+
+**What was accomplished**
+
+Shipped the queued follow-up from the scaffold session. Added two rules to `CLAUDE.md`:
+
+1. A **Self-audit** subsection under "How you work here" requiring every PR description to include a Self-audit covering deviations from the spec, choices made where the spec was silent, a scope check (no forbidden tools / no scope creep), and honest disclosure of anything cut or unauthorized.
+2. A **source-of-truth** principle at the top of "Documentation expectations": anything future sessions need must live in the repo; machine-local agent memory is a convenience cache only, never canonical.
+
+Docs-only change. Opened as a separate PR off `main` after PR #1 merged, per the queued plan.
+
+**Decisions made this session**
+
+- Cleared the now-shipped item from "Queued follow-ups" and added this entry rather than leaving a stale queue.
+- Did **not** modify `.github/pull_request_template.md` to add a Self-audit section — left as a flagged follow-up (see PR self-audit) to keep this PR to the requested CLAUDE.md scope.
 
 ---
 
