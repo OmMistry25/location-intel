@@ -6,6 +6,14 @@ This is the session-by-session memory of the project. Claude Code reads it at th
 
 ---
 
+## Queued follow-ups
+
+Standing list of agreed-but-not-yet-started work. Remove items as they ship.
+
+- **Add a "Self-audit" requirement to `CLAUDE.md`.** Every PR description must include a "Self-audit" section listing any deviations from the original task spec, even minor ones. Prompted by the scaffold PR's self-audit catching a proactively-added `@types/node`. **Do as a separate small PR** (not bundled with the scaffold), branched off `main` after PR #1 merges. In the same PR, add a rule: *anything future sessions need to know must live in the repo (`CLAUDE.md`, `WORK_LOG.md`, or a doc); machine-local memory is convenience only, never the canonical source of truth.*
+
+---
+
 ## 2026-05-26 — Monorepo scaffold (first Claude Code session)
 
 **What was accomplished**
