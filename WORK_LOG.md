@@ -6,6 +6,39 @@ This is the session-by-session memory of the project. Claude Code reads it at th
 
 ---
 
+## 2026-05-26 — Monorepo scaffold (first Claude Code session)
+
+**What was accomplished**
+
+Scaffolded the monorepo structure with working tooling. No feature code — skeleton only. Single combined PR (Python scaffold + TS scaffold + CI) rather than three, to avoid a chicken-and-egg between CI and the code it checks (see PR description).
+
+1. **Workspace structure.** `packages/{ingestion,intelligence}` (Python), `packages/{api,shared}` (TypeScript), `infra/supabase/migrations/` (empty, `.gitkeep`), `scripts/` (`.gitkeep`).
+
+2. **Python tooling.** Root `pyproject.toml` defines a uv virtual workspace and configures ruff (lint + format) and pyright (strict). Per-package `pyproject.toml` (hatchling, src layout) for ingestion and intelligence. Each exposes a `hello()` callable and a stub test. `requires-python = ">=3.11"`; `uv.lock` committed.
+
+3. **TypeScript tooling.** Root `package.json` (pnpm workspace), `pnpm-workspace.yaml`, strict `tsconfig.json`, `biome.json`. Per-package `package.json` + `tsconfig.json` for api and shared. Each exports `hello()` and has a stub vitest test. `pnpm-lock.yaml` committed.
+
+4. **CI.** `.github/workflows/ci.yml` runs on PRs to `main`. A `dorny/paths-filter` job gates Python vs TS jobs by changed paths. Python job: ruff check, ruff format --check, pyright, pytest (uv, cached). TS job: biome check, tsc --noEmit, vitest (pnpm, cached).
+
+5. **Per-package `CLAUDE.md`** stub in each of the four packages.
+
+**Pinned tool versions:** ruff 0.15.14, pyright 1.1.409, pytest 9.0.3, @biomejs/biome 2.4.15, typescript 6.0.3, vitest 4.1.7, @types/node 22.19.19. CI uses uv 0.11.16 / pnpm 11.3.0 / Node 22. GitHub Actions pinned to major tags (checkout v6, paths-filter v4, setup-uv v8, setup-node v6, pnpm/action-setup v6).
+
+**Verified locally (all green):** ruff check, ruff format --check, pyright (0 errors), pytest (2 passed); biome check, tsc --noEmit (0 errors), vitest (2 passed). Frozen installs (`uv sync --frozen`, `pnpm install --frozen-lockfile`) succeed against committed lockfiles.
+
+**What's next (in order)** — unchanged from kickoff; next is schema design (step 2 below).
+
+**Decisions made this session**
+
+- pytest uses `--import-mode=importlib` (both packages have `tests/test_main.py`; importlib mode avoids the duplicate-basename collision and suits the src layout). Documented in PR.
+- Combined-PR exception is one-time; subsequent PRs return to one-logical-change-per-PR.
+
+**Open questions for Om**
+
+- *(None blocking.)* Build-tool version pins were chosen as latest stable at scaffold time; bump policy TBD.
+
+---
+
 ## 2026-05-25 — Project kickoff (planning phase, pre-code)
 
 **What was accomplished**
