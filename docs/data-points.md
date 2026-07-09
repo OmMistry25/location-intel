@@ -358,7 +358,7 @@
 - Juice/health-food spot density — 🟢 F1 / ⭐⭐⭐ P3
 
 ### Public health indicators
-- AQI (PM2.5, ozone, NO2) — 🟢 F1 / ⭐ P1 *(EPA AirNow, BAAQMD, PurpleAir)*
+- AQI (PM2.5, ozone, NO2) — 🟢 F1 / ⭐ P1 *(EPA AirNow, BAAQMD; F1 at station resolution — PurpleAir densification is 🟡 F2, the one paid v1 source, see ADR 0003)*
 - Avg AQI yearly — 🟢 F1 / ⭐ P1
 - Days exceeding "good" AQI — 🟢 F1 / ⭐ P1
 - Noise pollution levels — 🟡 F2 / ⭐⭐ P2 *(BTS National Transportation Noise Map; SF-specific modeling)*
@@ -467,6 +467,7 @@
 ## 13. Environment & Climate
 
 ### Air
+*(F1 tags here reflect EPA AirNow at station resolution. PurpleAir densification is 🟡 F2 — no longer free; included in v1 as the one paid source per ADR 0003.)*
 - AQI daily/annual — 🟢 F1 / ⭐ P1
 - PM2.5 levels — 🟢 F1 / ⭐ P1
 - NO2 levels — 🟢 F1 / ⭐⭐ P2

@@ -14,6 +14,36 @@ _(None — the self-audit-requirement follow-up shipped in the entry below.)_
 
 ---
 
+## 2026-07-09 — Docs hygiene: architecture backfill + cross-doc drift fixes
+
+**What was accomplished**
+
+Docs-only PR fixing accumulated drift between the docs and reality:
+
+1. **Backfilled `docs/architecture.md`.** CLAUDE.md lists it as required reading and `HANDOFF_PROMPT.md` said to copy it in, but the original off-repo draft was never committed. Reconstructed from the committed record (README, ADRs 0001–0003, `docs/sources.md`, CLAUDE.md conventions) with a provenance note. Written at design altitude only — no schema details, those belong to the schema task.
+2. **README:** corrected the "Current state" checklist (scaffold is done, schema not started — it said the reverse) and completed the required-API-keys list (added NOAA and PurpleAir, linked `.env.example`).
+3. **PR template:** added the `## Self-audit` section required by CLAUDE.md — the flagged follow-up from the 2026-05-26 session.
+4. **`docs/data-points.md`:** annotated the air-quality entries to reflect PurpleAir's paid (🟡 F2) status, consistent with `docs/sources.md` §9 and ADR 0003. Tags stay F1 because EPA AirNow covers those points free at station resolution.
+
+**Decisions made this session**
+
+- `architecture.md` documents only already-decided architecture; anything not yet built is explicitly marked. No new decisions were made, so no new ADR.
+
+**What's next (in order)** — unchanged:
+
+1. **Design the storage schema** — `docs/schema.md` + `infra/supabase/migrations/0001_init.sql`
+2. Spec the DataSF crime pipeline — `docs/sources/datasf-crime.md`
+3. Implement the DataSF crime pipeline
+4. API skeleton — single `/data-points` endpoint
+
+Note: no Supabase project has been provisioned yet. Creating/linking one (dashboard access, real credentials) is an Om task; the schema can be designed and the migration written before that exists.
+
+**Open questions for Om**
+
+*(None blocking.)*
+
+---
+
 ## 2026-05-26 — Self-audit requirement added to CLAUDE.md (follow-up PR)
 
 **What was accomplished**

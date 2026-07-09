@@ -14,8 +14,8 @@ This project is in early build. The data foundation is being established for **S
 
 - ✅ Data point taxonomy mapped (~400 candidates, ~85 prioritized for v1)
 - ✅ Source mapping completed for free public sources (18 sources, ~75 data points)
-- ⏳ Schema design — in progress
-- ⏳ Repo scaffolded
+- ✅ Repo scaffolded (monorepo tooling + CI)
+- ⏳ Schema design — not started (next up)
 - ⏳ First ingestion pipeline (DataSF crime) — pending
 - ⏳ API skeleton — pending
 
@@ -78,7 +78,9 @@ location-intel/
 
 Required external services:
 - Supabase project (Postgres + PostGIS + Auth)
-- API keys for: Census, DataSF (Socrata token), 511.org (transit), EPA AirNow, NREL
+- API keys for: Census, DataSF (Socrata token), 511.org (transit), EPA AirNow, NREL, NOAA (NCEI token), PurpleAir (paid — see ADR 0003)
+
+See [`.env.example`](./.env.example) for the full list of required variables.
 
 Required local tools:
 - Python 3.11+ (`uv` for package management)

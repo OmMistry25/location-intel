@@ -33,6 +33,16 @@ Examples:
 <!-- Anything you're not sure about — design choices, edge cases, naming, etc. -->
 <!-- If nothing, write "Nothing." Do not delete this section. -->
 
+## Self-audit
+
+<!-- Required by CLAUDE.md. "Nothing to report" is only acceptable when it is actually true. -->
+<!-- Cover each of:
+  - Deviations from the original task spec, however minor.
+  - Choices made where the spec was silent (defaults picked, configs added, versions chosen, files created that weren't explicitly requested).
+  - Scope check: confirm no forbidden tools were added and no scope creep happened. If either did, say what and why.
+  - Any corner cut or any addition the spec didn't authorize.
+-->
+
 ## Out-of-scope observations
 
 <!-- Anything you noticed that wasn't fixed in this PR but probably should be addressed later. -->
