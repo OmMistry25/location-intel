@@ -2,7 +2,7 @@
 
 System design for location-intel: components, data flow, storage conventions, deployment topology. Where something is decided but not yet built, it is marked as such.
 
-> **Provenance:** the original off-repo architecture draft referenced in `HANDOFF_PROMPT.md` was never committed. This document reconstructs the architecture from the committed record — `README.md`, ADRs 0001–0003, `docs/sources.md`, and the conventions in `CLAUDE.md` — and supersedes that draft.
+> **Provenance:** the original off-repo architecture draft referenced in `HANDOFF_PROMPT.md` was never committed. This document reconstructs the architecture from the committed record — `README.md`, ADRs 0001–0003, `docs/sources.md`, `WORK_LOG.md`, `.env.example`, and the conventions in `CLAUDE.md` — and supersedes that draft.
 
 Related docs:
 
@@ -28,7 +28,7 @@ External data sources (Census, DataSF, OSM, GTFS, FEMA, NOAA, EPA, …)
         Intent-specific surfaces (later — house-hunting, retail siting, …)
 ```
 
-v1 is San Francisco only. City is treated as configuration: adding a city later means new ingestion runs and per-city config, not new code paths (see `README.md`, "Why San Francisco first").
+v1 is San Francisco only (see `README.md`, "Why San Francisco first"). City is treated as configuration: adding a city later means new ingestion runs and per-city config, not new code paths (`CLAUDE.md`, "What this project is").
 
 ## Components
 
@@ -78,7 +78,7 @@ Postgres + PostGIS, managed via Supabase. The concrete table design is the next 
 - **Layered storage.** Raw events/observations are kept distinct from derived metrics; derived layers are rebuilt from raw, not the other way around.
 - **Migrations.** Numbered SQL files in `infra/supabase/migrations/`; a migration that has been run is never edited — a new one is added.
 
-Supabase Storage holds non-DB files (large geometries, periodic dumps). No data files in the repo.
+Supabase Storage holds non-DB files (large geometries, periodic dumps) — documented in `.env.example` (`SUPABASE_STORAGE_BUCKET`). No data files in the repo.
 
 ### 4. Derived metrics layer
 

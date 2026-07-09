@@ -227,9 +227,10 @@
 - Rail frequency — 🟢 F1 / ⭐ P1
 - Transit reliability — 🟡 F2 / ⭐⭐ P2 *(GTFS-RT historical, requires storage)*
 - Nighttime transit availability — 🟢 F1 / ⭐ P1
-- Transit accessibility score — 🟢 F1 / ⭐ P1 *(derived; Conveyal/r5/OTP open source)*
+- Transit accessibility score — 🟢 F1 / ⭐ P1 *(derived; Conveyal/r5/OTP open source — routing engine deferred to v2 per ADR 0003; v1 ships GTFS-derived proxies)*
 
 ### Transit destinations
+*(Real travel times need a routing engine — deferred to v2 per ADR 0003. v1 ships GTFS-derived proxies (stop density, frequency, lines within radius); tags below describe feasibility, not the v1 cut.)*
 - Transit time to downtown SF — 🟢 F1 / ⭐ P1 *(OTP or Google Distance Matrix free tier)*
 - Transit time to nearest major job center — 🟢 F1 / ⭐ P1
 - Transit time to nearest hospital — 🟢 F1 / ⭐⭐ P2
@@ -271,6 +272,7 @@
 - Avg Uber/Lyft price — 🔴 F4 / ⭐⭐⭐ P3
 
 ### Airport access
+*(Transit-time entries here are routing-engine-dependent — deferred to v2 per ADR 0003, same as Transit destinations above.)*
 - Drive time to SFO — 🟢 F1 / ⭐ P1
 - Drive time to OAK — 🟢 F1 / ⭐⭐ P2
 - Transit time to SFO — 🟢 F1 / ⭐ P1

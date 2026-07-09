@@ -220,6 +220,7 @@ Static GTFS feeds describe routes, stops, schedules. Realtime GTFS-RT gives live
 - **Format:** GTFS (zip of CSV files); GTFS-RT (protobuf)
 
 ### Data points covered (P1)
+*(The routing-engine-dependent points below — accessibility score, transit times — are deferred to v2 per ADR 0003; v1 ships only the GTFS-derived proxies.)*
 - Bus stop locations and distances
 - Rail/metro station locations
 - Transit stop density

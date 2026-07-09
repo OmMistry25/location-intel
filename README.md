@@ -47,6 +47,8 @@ See [`docs/architecture.md`](./docs/architecture.md) for detail.
 
 ## Repo layout
 
+Target layout — entries marked *(planned)* do not exist yet.
+
 ```
 location-intel/
 ├── README.md                    # this file
@@ -56,10 +58,10 @@ location-intel/
 │   ├── architecture.md
 │   ├── data-points.md           # the data point taxonomy
 │   ├── sources.md               # source mapping summary
-│   ├── schema.md                # storage schema
+│   ├── schema.md                # storage schema (planned)
 │   ├── sources/                 # one doc per data source
 │   ├── decisions/               # ADRs
-│   └── runbooks/                # operational docs
+│   └── runbooks/                # operational docs (planned)
 ├── packages/
 │   ├── ingestion/               # Python — ETL pipelines
 │   ├── intelligence/            # Python — derived metrics, composite scores
@@ -67,14 +69,14 @@ location-intel/
 │   └── shared/                  # shared schemas, types
 ├── infra/
 │   ├── supabase/                # migrations, edge functions
-│   └── deploy/                  # docker, deployment configs
+│   └── deploy/                  # docker, deployment configs (planned)
 ├── scripts/                     # dev tooling, one-off scripts
-└── data/                        # data dictionaries, category mappings (no actual data)
+└── data/                        # data dictionaries, category mappings (no actual data) (planned)
 ```
 
 ## Getting started (developer)
 
-> Setup instructions will be added as the repo gets scaffolded.
+> The repo is scaffolded. Working local setup: `uv sync` (Python packages) and `pnpm install` (TypeScript packages) against the committed lockfiles. Fuller setup instructions will be added as the first pipeline lands.
 
 Required external services:
 - Supabase project (Postgres + PostGIS + Auth)
