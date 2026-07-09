@@ -227,9 +227,10 @@
 - Rail frequency — 🟢 F1 / ⭐ P1
 - Transit reliability — 🟡 F2 / ⭐⭐ P2 *(GTFS-RT historical, requires storage)*
 - Nighttime transit availability — 🟢 F1 / ⭐ P1
-- Transit accessibility score — 🟢 F1 / ⭐ P1 *(derived; Conveyal/r5/OTP open source)*
+- Transit accessibility score — 🟢 F1 / ⭐ P1 *(derived; Conveyal/r5/OTP open source — routing engine deferred to v2 per ADR 0003; v1 ships GTFS-derived proxies)*
 
 ### Transit destinations
+*(Real travel times need a routing engine — deferred to v2 per ADR 0003. v1 ships GTFS-derived proxies (stop density, frequency, lines within radius); tags below describe feasibility, not the v1 cut.)*
 - Transit time to downtown SF — 🟢 F1 / ⭐ P1 *(OTP or Google Distance Matrix free tier)*
 - Transit time to nearest major job center — 🟢 F1 / ⭐ P1
 - Transit time to nearest hospital — 🟢 F1 / ⭐⭐ P2
@@ -271,6 +272,7 @@
 - Avg Uber/Lyft price — 🔴 F4 / ⭐⭐⭐ P3
 
 ### Airport access
+*(Transit-time entries here are routing-engine-dependent — deferred to v2 per ADR 0003, same as Transit destinations above.)*
 - Drive time to SFO — 🟢 F1 / ⭐ P1
 - Drive time to OAK — 🟢 F1 / ⭐⭐ P2
 - Transit time to SFO — 🟢 F1 / ⭐ P1
@@ -358,7 +360,7 @@
 - Juice/health-food spot density — 🟢 F1 / ⭐⭐⭐ P3
 
 ### Public health indicators
-- AQI (PM2.5, ozone, NO2) — 🟢 F1 / ⭐ P1 *(EPA AirNow, BAAQMD, PurpleAir)*
+- AQI (PM2.5, ozone, NO2) — 🟢 F1 / ⭐ P1 *(EPA AirNow, BAAQMD; F1 at station resolution — PurpleAir densification is 🟡 F2, the one paid v1 source, see ADR 0003)*
 - Avg AQI yearly — 🟢 F1 / ⭐ P1
 - Days exceeding "good" AQI — 🟢 F1 / ⭐ P1
 - Noise pollution levels — 🟡 F2 / ⭐⭐ P2 *(BTS National Transportation Noise Map; SF-specific modeling)*
@@ -467,6 +469,7 @@
 ## 13. Environment & Climate
 
 ### Air
+*(F1 tags here reflect EPA AirNow at station resolution. PurpleAir densification is 🟡 F2 — no longer free; included in v1 as the one paid source per ADR 0003.)*
 - AQI daily/annual — 🟢 F1 / ⭐ P1
 - PM2.5 levels — 🟢 F1 / ⭐ P1
 - NO2 levels — 🟢 F1 / ⭐⭐ P2
